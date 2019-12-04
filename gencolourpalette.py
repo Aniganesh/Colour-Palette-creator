@@ -27,7 +27,7 @@ def createFile():
         check = False
 
         while(check != True):
-            suggestion = "Enter the hex code of the colour you want to call "+colourName + " "
+            suggestion = "Enter the hex code of the colour you want to call "+colourName + ". Do not add an Octothorpe(#). "
             HexCode = input(suggestion)
             check = input(
                 "Are you sure? Type Y or y for YES anything else will be taken as NO ")
@@ -61,11 +61,12 @@ def createFile():
 createPalettes = True
 print("Welcome. Let's create a colour palette.")
 choice = input(
-    "Shall we proceed?\nAnswer with y or Y for YES and any other letter for NO")
+    "Shall we proceed?\nAnswer with y or Y for YES and any other letter for NO ")
 if(choice != 'y' and choice != 'Y'):
     createPalettes = False
 
 while(createPalettes):
     createFile()
-    choice = input(
-        "Do you want to create more palettes to show your client?\nAnswer with y or Y for YES and any other letter for NO")
+    choice = input("Do you want to create more palettes to show your client?\nAnswer with y or Y for YES and any other letter for NO")
+    if(choice != 'y' and choice != 'Y'):
+        createPalettes = False

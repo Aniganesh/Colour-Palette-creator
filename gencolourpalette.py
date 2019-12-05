@@ -27,7 +27,8 @@ def createFile():
         check = False
 
         while(check != True):
-            suggestion = "Enter the hex code of the colour you want to call "+colourName + ". Do not add an Octothorpe(#). "
+            suggestion = "Enter the hex code of the colour you want to call " + \
+                colourName + ". Do not add an Octothorpe(#). "
             HexCode = input(suggestion)
             check = input(
                 "Are you sure? Type Y or y for YES anything else will be taken as NO ")
@@ -48,11 +49,12 @@ def createFile():
 
     cssCode = ""
     for colour in colours:
-        cssCode += ".bg-"+colour[0] + "{background-color: #"+colour[1] + "}\n"
+        cssCode += ".bg-"+colour[0] + "{\n\tbackground-color: #"+colour[1] + ";\n}\n"
     for colour in colours:
         cssCode += ".border-"+colour[0] + \
-            "{border: 1px solid #"+colour[1]+"}\n"
-
+            "{\n\tborder: 1px solid #"+colour[1]+";\n}\n"
+    for colour in colours:
+        cssCode += ".btn-"+colour[0] + "{\n\tbackground-color: #"+colour[1] + ";\n}\n"
     cssfile.write(cssCode)
     cssfile.flush()
     cssfile.close()
@@ -67,6 +69,7 @@ if(choice != 'y' and choice != 'Y'):
 
 while(createPalettes):
     createFile()
-    choice = input("Do you want to create more palettes to show your client?\nAnswer with y or Y for YES and any other letter for NO")
+    choice = input(
+        "Do you want to create more palettes to show your client?\nAnswer with y or Y for YES and any other letter for NO")
     if(choice != 'y' and choice != 'Y'):
         createPalettes = False
